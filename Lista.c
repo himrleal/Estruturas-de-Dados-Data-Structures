@@ -20,7 +20,7 @@ typedef struct list{
     struct t_element * tail;
 }t_list;
 
-//Create a empty list
+//Create an empty list
 t_list * createList(){
     t_list * l = (t_list*)malloc(sizeof(t_list));
     if(l == NULL){
@@ -120,32 +120,33 @@ int removeElement(int position, t_list * l){
     return -1;
 }
 
+//Main programm
 int main(){
-    char input;
-    int pos, val;
-    t_list * l = createList();
+    char input;                                     //Input of the user, list management options
+    int pos, val;                                   //Info that functions need to know, Position and Value
+    t_list * l = createList();                      //Create a empty list
     printf("\tWELLCOME TO THE LIST MANAGER. by: Leal.\nPress x to exit.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n\n");
-    scanf("%c", &input);
-    getchar();
-    while(input != 'x'){
-        if(input == 'p'){
+    scanf("%c", &input);                            //Gets user input
+    getchar();                                      //Get the \n character
+    while(input != 'x'){                            //x is for exit, program runs while user does not press x to exit
+        if(input == 'p'){                           //p to print list
             printList(l);
         }
-        if(input == 'i'){
+        if(input == 'i'){                           //i to insert in the list
             printf("Insert an element.\nPlease type the position to be inserted: ");
-            scanf("%d", &pos);
+            scanf("%d", &pos);                      //Gets the position
             printf("Insert an element.\nPlease type the value (integer) of the element: ");
-            scanf("%d", &val);
-            insertElement(pos, val, l);
+            scanf("%d", &val);                      //Gets the value
+            insertElement(pos, val, l);             //Call function
             printf("Done!\n\n");
         }
-        if(input == 'r'){
+        if(input == 'r'){                           //r is to remove from the list
             printf("Remove an element.\nPlease type the position of the element to be removed: ");
-            scanf("%d", &pos);
-            printf("The element was removed. Its value was %d.\n\n", removeElement(pos, l));
+            scanf("%d", &pos);                      //Gets the position
+            printf("The element was removed. Its value was %d.\n\n", removeElement(pos, l));    //Call function
         }
-        scanf("%c", &input);
+        scanf("%c", &input);                        //Rescan the input as user can do other operations
     }
-    printf("\nExiting...\nBye!\n");
+    printf("\nExiting...\nBye!\n");                 //If x was pressed exit program
     return 0;
 }
