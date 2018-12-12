@@ -123,12 +123,10 @@ int removeElement(int position, t_list * l){
 int main(){
     char input;
     int pos, val;
-    printf("\tWELLCOME TO THE LIST MANAGER. by: Leal.\nPress x to exit.\nPress c to create a list.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n");
+    t_list * l = createList();
+    printf("\tWELLCOME TO THE LIST MANAGER. by: Leal.\nPress x to exit.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n");
     scanf("%c", &input);
     input = strlwr(input);
-    if(input == 'c'){
-        t_list * l = createList();
-    }
     while(input != 'x'){
         if(input == 'p'){
             printList(l);
