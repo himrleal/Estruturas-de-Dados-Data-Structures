@@ -25,7 +25,7 @@ t_list * createList(){
     t_list * l = (t_list*)malloc(sizeof(t_list));
     if(l == NULL){
         printf("Could not create a list.\n");       //Error at allocation
-        return;
+        return l;
     }
     l->head = NULL;                                 //Empty list
     l->tail = NULL;
@@ -37,12 +37,12 @@ void printList(t_list * l){
     t_element * current = l->head;
     if(current == NULL){
         printf("Empty list.\n");                    //Head = Null, the list is empty
-        return;
     }
     while(current != NULL){
         printf("%d ", current->data);               //Print the data of the elements
         current = current->next;
     }
+    printf("\n");
 }
 
 //Insert an element/value on the list based on the positon passed as argument
@@ -146,7 +146,6 @@ int main(){
                 printf("The element was removed. Its value was %d.\n\n", removeElement(pos, l));
             }
         }
-        printf("\nWhat else can i do for you?\nPress x to exit.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n\n");
         scanf("%c", &input);
     }
     printf("\nExiting...\nBye!\n");
