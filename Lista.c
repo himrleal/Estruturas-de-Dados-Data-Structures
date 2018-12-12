@@ -46,7 +46,7 @@ void printList(t_list * l){
 }
 
 //Insert an element/value on the list based on the positon passed as argument
-void insert(int position, int value, t_list * l){
+void insertElement(int position, int value, t_list * l){
     if(position < 0){
         printf("Invalid position. Starts from zero (0).\n");
         return;                                     //Positions starts from 0
@@ -87,7 +87,7 @@ void insert(int position, int value, t_list * l){
 }
 
 //Remove an element in the given position, returning the value of the element
-int remove(int position, t_list * l){
+int removeElement(int position, t_list * l){
     if(l->head == NULL){                            //If the list is empty, nothing can be removed
         printf("Empty list. Cannot remove any element.\n");
         return -1;
@@ -126,10 +126,10 @@ int main(){
     printf("\tWELLCOME TO THE LIST MANAGER. by: Leal.\nPress x to exit.\nPress c to create a list.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n");
     scanf("%c", &input);
     input = strlwr(input);
+    if(input == 'c'){
+        t_list * l = createList();
+    }
     while(input != 'x'){
-        if(input == 'c'){
-            t_list * l = createList();
-        }
         if(input == 'p'){
             printList(l);
         }
@@ -138,13 +138,13 @@ int main(){
             scanf("%d", &pos);
             printf("Insert an element.\nPlease type the value (integer) of the element: ");
             scanf("%d", &val);
-            insert(pos, val, l);
+            insertElement(pos, val, l);
             printf("Done!\n");
         }
         if(input == 'r'){
             printf("Remove an element.\nPlease type the position of the element to be removed: ");
             scanf("%d", &pos);
-            printf("The element was removed. Its value was %d.\n", remove(pos, l));
+            printf("The element was removed. Its value was %d.\n", removeElement(pos, l));
         }
         printf("What else can i do for you?\nPress x to exit.\nPress c to create a list.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n");
         scanf("%c", &input);
