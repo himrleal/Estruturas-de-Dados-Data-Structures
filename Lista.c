@@ -142,9 +142,7 @@ int main(){
         if(input == 'r'){
             printf("Remove an element.\nPlease type the position of the element to be removed: ");
             scanf("%d", &pos);
-            if(removeElement(pos, l) != -1){
-                printf("The element was removed. Its value was %d.\n\n", removeElement(pos, l));
-            }
+            printf("The element was removed. Its value was %d.\n\n", removeElement(pos, l));
         }
         scanf("%c", &input);
     }
