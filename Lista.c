@@ -124,9 +124,9 @@ int main(){
     char input;
     int pos, val;
     t_list * l = createList();
-    printf("\tWELLCOME TO THE LIST MANAGER. by: Leal.\nPress x to exit.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n");
+    printf("\tWELLCOME TO THE LIST MANAGER. by: Leal.\nPress x to exit.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n\n");
     scanf("%c", &input);
-    input = strlwr(input);
+    getchar();
     while(input != 'x'){
         if(input == 'p'){
             printList(l);
@@ -137,17 +137,18 @@ int main(){
             printf("Insert an element.\nPlease type the value (integer) of the element: ");
             scanf("%d", &val);
             insertElement(pos, val, l);
-            printf("Done!\n");
+            printf("Done!\n\n");
         }
         if(input == 'r'){
             printf("Remove an element.\nPlease type the position of the element to be removed: ");
             scanf("%d", &pos);
-            printf("The element was removed. Its value was %d.\n", removeElement(pos, l));
+            if(removeElement(pos, l) != -1){
+                printf("The element was removed. Its value was %d.\n\n", removeElement(pos, l));
+            }
         }
-        printf("What else can i do for you?\nPress x to exit.\nPress c to create a list.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n");
+        printf("\nWhat else can i do for you?\nPress x to exit.\nPress p to print the current list.\nPress i to insert.\nPress r to remove.\n\n");
         scanf("%c", &input);
-        input = strlwr(input);
     }
-    printf("Exiting...\nBye!\n");
+    printf("\nExiting...\nBye!\n");
     return 0;
 }
